@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] float HitPoints;
-    [SerializeField] float MaxHealth = 10f;
+    public float HitPoints;
+    public float MaxHealth = 10f;
     [SerializeField] GameObject EXP;
     Vector3 expSpawn;
     void Start()

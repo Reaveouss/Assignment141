@@ -6,6 +6,14 @@ TagManager:
   tags:
   - Floor
   - Enemy
+  - Melee
+  - Ranged
+  - Thief
+  - Stand1
+  - Stand2
+  - Stand3
+  - Stand4
+  - EnemyStand
   layers:
   - Default
   - TransparentFX

@@ -8,9 +8,11 @@ public class MeleeAttack : MonoBehaviour
     float range = 1f;
     LayerMask layermask;
     [SerializeField] float rawDamage = 10f;
+    [SerializeField] Animator animator;
     void Start()
     {
         layermask = ~LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer));
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -23,6 +25,7 @@ public class MeleeAttack : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            animator.SetBool("Attacking", true);
             cameraTransform = Camera.main.transform;
             Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
             RaycastHit hit;
@@ -39,5 +42,6 @@ public class MeleeAttack : MonoBehaviour
                 }
             }
         }
+        animator.SetBool("Attacking", false);
     }
 }

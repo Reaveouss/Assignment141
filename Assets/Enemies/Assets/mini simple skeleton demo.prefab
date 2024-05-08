@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 1305276012819249565}
   m_Layer: 6
   m_Name: mini simple skeleton demo
-  m_TagString: Enemy
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -862,7 +862,7 @@ Transform:
   m_GameObject: {fileID: 5315188884500127664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.1146786, y: 0, z: 3.0921173}
+  m_LocalPosition: {x: -0.5746836, y: 0, z: 0.34702712}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -995,9 +995,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8651d63cfc912b47acacae6d0aa6fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 0}
   Player: {fileID: 0}
   animator: {fileID: 0}
+  Melee: 0
+  Ranged: 0
+  Thief: 0
 --- !u!1 &5315921635193640037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,9 +1749,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8651d63cfc912b47acacae6d0aa6fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 0}
   Player: {fileID: 0}
   animator: {fileID: 5826425786967808854}
+  Melee: 0
+  Ranged: 0
+  Thief: 0
 --- !u!4 &4215010906536582781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6a57016789807ac4b8b0402b519bfe39, type: 3}
