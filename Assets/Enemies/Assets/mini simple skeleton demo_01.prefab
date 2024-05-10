@@ -1373,6 +1373,7 @@ GameObject:
   - component: {fileID: -4204733021964172051}
   - component: {fileID: 8793216618769452507}
   - component: {fileID: 543049073005256958}
+  - component: {fileID: 4140167423017180429}
   m_Layer: 6
   m_Name: mini simple skeleton demo_01
   m_TagString: Ranged
@@ -1389,7 +1390,7 @@ Transform:
   m_GameObject: {fileID: 8333113109882697871}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.710601, y: 0, z: 2.957896}
+  m_LocalPosition: {x: 4.524785, y: 0, z: 1.5085502}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1527,6 +1528,24 @@ MonoBehaviour:
   Melee: 0
   Ranged: 0
   Thief: 0
+--- !u!114 &4140167423017180429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8333113109882697871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cdfc19cf6307ca40a802041a0ac77a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  animator: {fileID: 0}
+  Melee: 0
+  Ranged: 0
+  Thief: 0
+  rawDamage: 2
 --- !u!1 &9165615188202350992
 GameObject:
   m_ObjectHideFlags: 0
