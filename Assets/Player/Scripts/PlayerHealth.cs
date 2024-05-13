@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] float Health;
-    [SerializeField] float MaxHitPoints = 100f;
+    public float Health;
+    public float MaxHitPoints = 1000f;
     public Slider healthSlider;
+    [SerializeField] GameObject Death;
     void Start()
     {
         Health = MaxHitPoints;
@@ -17,6 +19,11 @@ public class PlayerHealth : MonoBehaviour
         if(Health > MaxHitPoints)
         {
             Health = MaxHitPoints;
+        }
+        SetHealthSlider();
+        if(Health < 0)
+        {
+            OnDeath();
         }
     }
     private void Hit(float rawDamage)
@@ -40,8 +47,11 @@ public class PlayerHealth : MonoBehaviour
     {
         return Health / MaxHitPoints;
     }
-    private void OnDestroy()
+    private void OnDeath()
     {
-        
+        Time.timeScale = 0f;
+        Death.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

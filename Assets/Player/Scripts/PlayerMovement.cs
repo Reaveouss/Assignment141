@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public float LookDownClamp = 60f;
     private Vector3 MoveDirection = Vector3.zero;
     float rotateX, rotateY;
+    [SerializeField] GameObject Leveling;
+    [SerializeField] GameObject Death;
     void Start()
     {
         Cursor.visible = false;
@@ -27,8 +29,11 @@ public class PlayerMovement : MonoBehaviour
     {
         //if (!MenuController.IsGamePaused)
         //{
-            Locomotion();
+        Locomotion();
+        if (!Leveling.activeSelf || !Death.activeSelf)
+        {
             RotateAndLook();
+        }
         //}
     }
     void SetCurrentCamera()

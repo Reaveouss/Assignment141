@@ -5,9 +5,9 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
     Transform cameraTransform;
-    float range = 1f;
+    public float range = 1f;
     LayerMask layermask;
-    [SerializeField] float rawDamage = 10f;
+    public float rawDamage = 5f;
     [SerializeField] Animator animator;
     void Start()
     {

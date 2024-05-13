@@ -14,10 +14,14 @@ public class EnemyAttacks : MonoBehaviour
     [SerializeField] float rawDamage = 1f;
     float MeleeDistance = 1f;
     float RangedDistance = 6f;
-    LayerMask layermask;
+    [SerializeField] LayerMask layermask;
+    float cooldown = 60f;
+    bool attackready = true;
+    float tick;
     void Start()
     {
-        layermask = ~LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer));
+        tick = cooldown;
+        //layermask = ~LayerMask.GetMask(LayerMask.LayerToName(gameObject.layer));
         animator = GetComponentInParent<Animator>();
         Player = GameObject.FindWithTag("Player");
         if (this.CompareTag("Melee"))
@@ -33,19 +37,34 @@ public class EnemyAttacks : MonoBehaviour
             Thief = true;
         }
     }
+    bool IsReadyToAttack()
+    {
+        if(tick < cooldown)
+        {
+            tick += 1;
+            return false;
+        }
+        return true;
+    }
     void Update()
     {
-        if (Melee)
+        attackready = IsReadyToAttack();
+        Debug.Log(attackready);
+        if (attackready)
         {
-            MeleeAttacking();
-        }
-        if (Ranged)
-        {
-            RangedAttacking();
-        }
-        if (Thief)
-        {
-            ThiefStealing();
+            if (Melee)
+            {
+                MeleeAttacking();
+            }
+            if (Ranged)
+            {
+                RangedAttacking();
+            }
+            if (Thief)
+            {
+                ThiefStealing();
+            }
+            tick = 0;
         }
     }
     void MeleeAttacking()
@@ -82,7 +101,7 @@ public class EnemyAttacks : MonoBehaviour
                 if (hit.transform != null)
                 {
                     hit.collider.SendMessageUpwards("Hit", rawDamage/2, SendMessageOptions.DontRequireReceiver);
-                    Debug.Log("Ranged Raycasted");
+                    Debug.Log(hit.transform.gameObject.name);
                 }
             }
         }

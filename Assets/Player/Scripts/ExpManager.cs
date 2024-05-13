@@ -8,6 +8,7 @@ public class ExpManager : MonoBehaviour
     public float Exp = 0f;
     public float ExpMax = 100;
     public Slider ExpSlider;
+    [SerializeField] GameObject Leveling;
     void Start()
     {
         SetExpSlider();
@@ -24,6 +25,10 @@ public class ExpManager : MonoBehaviour
         {
             Exp = 0f;
             ExpMax = ExpMax * ExpMultiplier;
+            Time.timeScale = 0;
+            Leveling.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             SetExpSlider();
         }
     }
